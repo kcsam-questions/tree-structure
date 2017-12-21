@@ -51,4 +51,15 @@ class TreeNode
     end
     list
   end
+
+  def as_depth_first_paths
+    list = []
+    as_paths.each_with_index do |full_path, index|
+      file_name = as_ordered_list[index]
+      depth = full_path.split("/").index(file_name) + 1
+      list << [full_path, depth]
+    end
+    list.sort! { |x,y| y[1] <=> x[1] }
+    list.map { |elem| elem[0] }
+  end
 end
