@@ -1,0 +1,33 @@
+MyDocuments:
+  - 2016_financial_projection.xlsx
+  - new_document1.docx
+  - Workspace:
+    - LawReports:
+      - SLA_0001.pdf
+      - SLA_0002.pdf
+      - SLA_0003.pdf
+      - SLA_0004.pdf
+    - Contracts:
+      - InformationTechnology:
+        - IBM:
+          - Equipments:
+            - Laptops:
+              - Pre2016_Models:
+                - LN3002.pdf
+                - LN3003.pdf
+                - LN3010.pdf
+                - LN6010.pdf
+              - 2016_Models:
+                - LN9020.pdf
+        - AWS: EnterpriseAgreement2014_2015.pdf
+      - Marketing:
+        - Advox:
+          - 2013_campaign.pdf
+          - 2013_campaign_signed.pdf
+    - Circular:
+      - CC2201.pdf
+      - CC2301.pdf
+      - CC2308.pdf
+    - Drafts:
+      - AmexPartnership_Draft.docx
+      - VisaPartnership_Draft.docx
