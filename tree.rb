@@ -4,11 +4,9 @@ class TreeNode
   attr_accessor :children, :name
 
   def initialize(tree_structure)
-    @tree_structure = tree_structure
-    @children = []
-
     if tree_structure.kind_of?(String)
       @name = tree_structure
+      @children = []
     else
       @name = tree_structure.first[0]
       files = [tree_structure.values].flatten.map do |file|
@@ -27,11 +25,7 @@ class TreeNode
   end
 
   def as_paths(prefix="")
-    if prefix.empty?
-      name = @name
-    else
-      name = prefix + "/" + @name
-    end
+    name = prefix.empty? ? @name : prefix + "/" + @name
     Array(name) + @children.map { |child| child.as_paths(name) }.flatten
   end
 
