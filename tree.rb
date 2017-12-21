@@ -42,14 +42,13 @@ class TreeNode
     @children.map { |child| child.select_files }.flatten
   end
 
-  def as_ordered_list_with_depth
-    list = []
-    as_paths.each_with_index do |full_path, index|
-      file_name = as_ordered_list[index]
-      depth = full_path.split("/").index(file_name) + 1
-      list << [file_name, depth]
+  def as_ordered_list_with_depth(parent=[], depth=0)
+    depth += 1
+    parent << [@name, depth]
+    @children.each do |child|
+      child.as_ordered_list_with_depth(parent, depth)
     end
-    list
+    parent
   end
 
   def as_depth_first_paths
