@@ -43,5 +43,12 @@ class TreeNode
   end
 
   def as_ordered_list_with_depth
+    list = []
+    as_paths.each_with_index do |full_path, index|
+      file_name = as_ordered_list[index]
+      depth = full_path.split("/").index(file_name) + 1
+      list << [file_name, depth]
+    end
+    list
   end
 end
