@@ -46,13 +46,18 @@ class TreeNode
   end
 
   def as_depth_first_paths
-    list = []
-    as_paths.each_with_index do |full_path, index|
-      file_name = as_ordered_list[index]
-      depth = full_path.split("/").index(file_name) + 1
-      list << [full_path, depth]
+    # First in first out and then reverse
+    queue = []
+    results = []
+    queue << self
+    while !queue.empty?
+      # NOTE: shift the node out from the queue
+      next_node = queue.shift
+      results << next_node.name
+      next_node.children.each do |child|
+        queue << child
+      end
     end
-    list.sort! { |x,y| y[1] <=> x[1] }
-    list.map { |elem| elem[0] }
+    results.reverse
   end
 end
