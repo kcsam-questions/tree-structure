@@ -1,7 +1,7 @@
 require "byebug"
 
 class TreeNode
-  attr_accessor :children, :name
+  attr_accessor :children, :name, :full_name
 
   def initialize(tree_structure)
     if tree_structure.kind_of?(String)
@@ -49,12 +49,14 @@ class TreeNode
     # First in first out and then reverse
     queue = []
     results = []
+    @full_name = @name
     queue << self
     while !queue.empty?
       # NOTE: shift the node out from the queue
       next_node = queue.shift
-      results << next_node.name
+      results << next_node.full_name
       next_node.children.each do |child|
+        child.full_name = next_node.full_name + "/" + child.name
         queue << child
       end
     end
